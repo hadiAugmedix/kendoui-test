@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="kendo/styles/kendo.common.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.rtl.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.default.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.default.mobile.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="demo.css">
+    <title>Sticky table header</title>
+
+</head>
+<body>
+    
+    
+    <div class="container">
+        <div id="grid"></div>
+    </div>
+    
+
+    <script src="kendo/js/jquery.min.js"></script>
+    <script src="kendo/js/kendo.all.min.js"></script>
+
+    <script>
+        jQuery(document).ready(function($) {
+            $("#grid").kendoGrid({
+                dataSource: {
+                    transport: {
+                        read: "https://jsonplaceholder.typicode.com/posts"
+                    },
+                    pageSize: 50
+                },
+                groupable: false,
+                sortable: false,
+                pageable: {
+                    refresh: true,
+                    pageSizes: true,
+                    buttonCount: 5
+                },
+                columns: [
+                    {
+                        field: "id",
+                        title: "Post ID",
+                        width: 80
+                    },
+                    {
+                        field: "title",
+                        title: "Post title"
+                    }
+                ],
+                height: 550
+            });
+        });
+    </script>
+
+</body>
+</html>
