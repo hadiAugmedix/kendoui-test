@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="kendo/styles/kendo.common.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.rtl.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.default.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.default.mobile.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="demo.css">
+    <title>Multiple column sorting or disable one or two column and sort another</title>
+
+</head>
+<body>
+    
+    
+    <div class="container">
+        <div id="grid"></div>
+    </div>
+    
+
+    <script src="kendo/js/jquery.min.js"></script>
+    <script src="kendo/js/kendo.all.min.js"></script>
+
+    <script>
+        jQuery(document).ready(function($) {
+            $("#grid").kendoGrid({
+                dataSource: {
+                    transport: {
+                        read: "https://jsonplaceholder.typicode.com/users"
+                    },
+                    pageSize: 50
+                },
+                groupable: false,
+                sortable: true,
+                pageable: {
+                    refresh: true,
+                    pageSizes: true,
+                    buttonCount: 5
+                },
+                columns: [
+                    {
+                        field: "name",
+                        title: "Person name"
+                    },
+                    {
+                        field: "email",
+                        title: "Email address"
+                    },
+                    {
+                        field: "website",
+                        title: "Website"
+                    },
+                    {
+                        field: "address",
+                        title: "Address",
+                        template: "#:address.street#, #:address.suite#"
+                    }
+                ],
+                height: 550
+            });
+        });
+    </script>
+
+</body>
+</html>
