@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="kendo/styles/kendo.common.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.rtl.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.default.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.default.mobile.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="demo.css">
+    <title>Date range</title>
+
+</head>
+<body>
+    
+    
+    <div class="container">
+        <div class="k-content">
+            <h4>Start date:</h4>
+            <input id="start">
+
+            <h4 style="margin-top: 2em">End date:</h4>
+            <input id="end">
+        </div>
+    </div>
+    
+
+    <script src="kendo/js/jquery.min.js"></script>
+    <script src="kendo/js/kendo.all.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            function startChange() {
+                var startDate = start.value(),
+                endDate = end.value();
+
+                if (startDate) {
+                    startDate = new Date(startDate);
+                    startDate.setDate(startDate.getDate());
+                    end.min(startDate);
+                } else if (endDate) {
+                    start.max(new Date(endDate));
+                } else {
+                    endDate = new Date();
+                    start.max(endDate);
+                    end.min(endDate);
+                }
+            }
+
+            function endChange() {
+                var endDate = end.value(),
+                startDate = start.value();
+
+                if (endDate) {
+                    endDate = new Date(endDate);
+                    endDate.setDate(endDate.getDate());
+                    start.max(endDate);
+                } else if (startDate) {
+                    end.min(new Date(startDate));
+                } else {
+                    endDate = new Date();
+                    start.max(endDate);
+                    end.min(endDate);
+                }
+            }
+
+            var start = $("#start").kendoDatePicker({
+                change: startChange,
+                format: "dd/MM/yyyy"
+            }).data("kendoDatePicker");
+
+            var end = $("#end").kendoDatePicker({
+                change: endChange,
+                format: "dd/MM/yyyy"
+            }).data("kendoDatePicker");
+
+            start.max(end.value());
+            end.min(start.value());
+        });
+    </script>
+
+</body>
+</html>
