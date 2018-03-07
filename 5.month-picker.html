@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="kendo/styles/kendo.common.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.rtl.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.default.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.default.mobile.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="demo.css">
+    <title>Month picker</title>
+
+</head>
+<body>
+    
+    
+    <div class="container">
+        <input class="monthpicker" value="February 2018" title="monthpicker">
+    </div>
+    
+
+    <script src="kendo/js/jquery.min.js"></script>
+    <script src="kendo/js/kendo.all.min.js"></script>
+
+    <script>
+        jQuery(document).ready(function($) {
+            $(".monthpicker").kendoDatePicker({
+                start: "year",
+                depth: "year",
+                format: "MMMM yyyy",
+                dateInput: true
+            });
+        });
+    </script>
+
+</body>
+</html>
