@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="kendo/styles/kendo.common.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.rtl.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.default.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.default.mobile.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="demo.css">
+    <title>confirm box</title>
+
+</head>
+<body>
+    
+    
+    <div class="container">
+        <h3>Solution # 1</h3>
+        <button id="confirmBtn" class="k-button">Submit with confirm dialog</button>
+
+        <br><br>
+        <h3>Solution # 2</h3>
+        <div id="dialog"></div>
+        <span id="undo" class="k-button">Click here to open the dialog</span>
+
+    </div>
+    
+
+    <script src="kendo/js/jquery.min.js"></script>
+    <script src="kendo/js/kendo.all.min.js"></script>
+
+    <script>
+        jQuery(document).ready(function($) {
+            $("#confirmBtn").on("click", function () {
+                kendo.confirm("Are you sure that you want to proceed?").then(function () {
+                    $('#confirmBtn').html('Cool!, wanna test again? click me!');
+                }, function () {
+                    $('#confirmBtn').html('Damn it :( , wanna test again? click me!');
+                });
+            });
+
+            // solution 2
+            var dialog = $('#dialog'),
+            undo = $("#undo");
+
+            undo.click(function () {
+                dialog.data("kendoDialog").open();
+            });
+
+            function onClose() {
+            }
+            
+            dialog.kendoDialog({
+                width: "450px",
+                title: "Software Update",
+                closable: false,
+                modal: false,
+                content: "<p>A new version of <strong>Kendo UI</strong> is available. Would you like to download and install it now?<p>",
+                actions: [
+                    { text: 'Skip this version', action: skipVersion },
+                    { text: 'Remind me later', action: remindMeLater },
+                    { text: 'Install update', primary: true, action: installUpdate }
+                ],
+                close: onClose
+            });
+
+            dialog.data("kendoDialog").close();
+
+            function skipVersion(e) {
+                kendo.alert("Version skipped");
+            }
+
+            function remindMeLater(e) {
+                kendo.alert("Remind me later selected");
+            }
+
+            function installUpdate(e) {
+                kendo.alert("Update installed");
+            }
+
+        });
+    </script>
+
+</body>
+</html>
