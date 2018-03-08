@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="kendo/styles/kendo.common.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.rtl.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.default.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.default.mobile.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="demo.css">
+    <title>Read more or less in table cell</title>
+
+    <style>
+        .long-text span { display: none }
+    </style>
+
+</head>
+<body>
+    
+    
+    <div class="container">
+
+        <div id="grid"></div>
+
+    </div>
+
+    <template id="template">
+        <div class="long-text">
+            <p>#:address.street# Lorem ipsum dolor sit amet <span>#:address.city# Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, eligendi quod veniam esse nesciunt quis nobis, quaerat eveniet sapiente recusandae labore accusamus cum, totam maiores, voluptatibus id neque at perspiciatis.</span> <a href="./" class="long-text-more"><small>show / hide more</small></a></p>
+
+        </div>
+    </template>
+    
+
+    <script src="kendo/js/jquery.min.js"></script>
+    <script src="kendo/js/kendo.all.min.js"></script>
+
+    <script>
+        jQuery(document).ready(function($) {
+            $("#grid").kendoGrid({
+                dataSource: {
+                    transport: {
+                        read: "https://jsonplaceholder.typicode.com/users"
+                    },
+                    pageSize: 50
+                },
+                groupable: false,
+                sortable: true,
+                pageable: {
+                    refresh: true,
+                    pageSizes: true,
+                    buttonCount: 5
+                },
+                columns: [
+                    {
+                        field: "name",
+                        title: "Person name"
+                    },
+                    {
+                        field: "email",
+                        title: "Email address",
+                        sortable: false
+                    },
+                    {
+                        field: "website",
+                        title: "Website"
+                    },
+                    {
+                        field: "address",
+                        title: "Address",
+                        template: kendo.template($("#template").html())
+                    }
+                ],
+                height: 550
+            });
+
+            $('html').on('click', '.long-text-more', function(event) {
+                event.preventDefault();
+                
+                $(this).closest('.long-text').find('span').toggle();
+            });
+        });
+    </script>
+
+</body>
+</html>
