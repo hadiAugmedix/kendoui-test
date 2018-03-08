@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="kendo/styles/kendo.common.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.rtl.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.default.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.default.mobile.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="demo.css">
+    <title>Sticky table header</title>
+
+</head>
+<body>
+    
+    
+    <div class="container-fluid">
+        <div id="grid"></div>
+        <br><br>
+        <div id="grid-2"></div>
+        <br><br>
+        <div id="client"></div>
+        <br><br>
+        <div id="server"></div>
+        <br><br>
+        <div id="grid-3"></div>
+        <br><br>
+
+        <input type="text" name="grid-4-city-filter" id="grid-4-city-filter" placeholder="City">
+        <input type="text" name="grid-4-title-filter" id="grid-4-title-filter" placeholder="Title">
+        <input type="button" id="clear" value="Clear Filters">
+        <br><br>
+        <div id="grid-4"></div>
+        <br><br>
+    </div>
+    
+
+    <script src="kendo/js/jquery.min.js"></script>
+    <script src="kendo/js/kendo.all.min.js"></script>
+    <script src="people.js"></script>
+
+    <script>
+        jQuery(document).ready(function($) {
+
+            var gridSettings = {
+                dataSource: {
+                    transport: {
+                        read: "https://jsonplaceholder.typicode.com/users"
+                    },
+                    pageSize: 50
+                },
+                groupable: false,
+                sortable: true,
+                pageable: {
+                    refresh: true,
+                    pageSizes: true,
+                    buttonCount: 5
+                },
+                columns: [
+                    {
+                        field: "name",
+                        title: "Person name"
+                    },
+                    {
+                        field: "email",
+                        title: "Email address",
+                        sortable: false
+                    },
+                    {
+                        field: "website",
+                        title: "Website"
+                    },
+                    {
+                        field: "address",
+                        title: "Address",
+                        template: "#:address.street#, #:address.suite#",
+                        filterable: false
+                    }
+                ],
+                filterable: true
+            };
+            
+
+            $("#grid").kendoGrid(gridSettings);
+
+            gridSettings.filterable = {
+                mode: "row"
+            };
+
+            $("#grid-2").kendoGrid(gridSettings);
+
+
+            var telerikWebServiceBase = "https://demos.telerik.com/kendo-ui/service/";
+
+            $("#client").kendoGrid({
+                dataSource: {
+                    transport: {
+                        read:  {
+                            url: telerikWebServiceBase + "/Products",
+                            dataType: "jsonp"
+                        },
+                        update: {
+                            url: telerikWebServiceBase + "/Products/Update",
+                            dataType: "jsonp"
+                        },
+                        destroy: {
+                            url: telerikWebServiceBase + "/Products/Destroy",
+                            dataType: "jsonp"
+                        },
+                        create: {
+                            url: telerikWebServiceBase + "/Products/Create",
+                            dataType: "jsonp"
+                        },
+                        parameterMap: function(options, operation) {
+                            if (operation !== "read" && options.models) {
+                                return {models: kendo.stringify(options.models)};
+                            }
+                        }
+                    },
+                    batch: true,
+                    pageSize: 20,
+                    schema: {
+                        model: {
+                            id: "ProductID",
+                            fields: {
+                                ProductID: { editable: false, nullable: true },
+                                ProductName: { validation: { required: true } },
+                                UnitPrice: { type: "number", validation: { required: true, min: 1} },
+                                Discontinued: { type: "boolean" },
+                                UnitsInStock: { type: "number", validation: { min: 0, required: true } }
+                            }
+                        }
+                    }
+                },
+                filterable: true,
+                pageable: true,
+                height: 550,
+                toolbar: ["create", "save", "cancel"],
+                columns: [
+                    { field: "ProductName", filterable: { multi: true, search: true} },
+                    { field: "UnitPrice", title: "Unit Price", format: "{0:c}", width: 120, filterable: { multi: true } },
+                    { field: "UnitsInStock", title: "Units In Stock", width: 120, filterable: { multi: true } },
+                    { field: "Discontinued", width: 120, filterable: { multi: true, dataSource: [{ Discontinued: true }, { Discontinued: false }]} },
+                    { command: "destroy", title: "&nbsp;", width: 150}],
+                editable: true
+            });
+
+            $("#server").kendoGrid({
+                dataSource: {
+                    type: "odata",
+                    transport: {
+                        read: telerikWebServiceBase + "Northwind.svc/Employees"
+                    },
+                    pageSize: 20,
+                    serverPaging: true,
+                    serverSorting: true,
+                    serverFiltering: true,
+                },
+                editable: true,
+                filterable: true,
+                pageable: true,
+                columns: [
+                    {
+                        field: "FirstName",
+                        title: "First Name",
+                        filterable: {
+                            multi: true ,
+                            //when serverPaging of the Grid is enabled, dataSource should be provided for all the Filterable Multi Check widgets
+                            dataSource: {
+                                transport: {
+                                    read: {
+                                        url: telerikWebServiceBase + "Employees/Unique",
+                                        dataType: "jsonp",
+                                        data: {
+                                            field: "FirstName"
+                                        }
+                                    }
+                               }
+                            }
+                        },
+                        width: "220px"
+                    },
+                    {
+                        field: "LastName",
+                        filterable: { 
+                            dataSource: {
+                                transport: {
+                                    read: {
+                                        url: telerikWebServiceBase + "Employees/Unique",
+                                        dataType: "jsonp",
+                                        data: {
+                                            field: "LastName"
+                                        }
+                                    }
+                               }
+                            },
+                            multi: true 
+                        },
+                        title: "Last Name",
+                        width: "220px"
+                    },
+                    {
+                        field: "Country",
+                        filterable: {
+                            multi: true,
+                            dataSource: {
+                                transport: {
+                                    read: {
+                                        url: telerikWebServiceBase + "Employees/Unique",
+                                        dataType: "jsonp",
+                                        data: {
+                                            field: "Country"
+                                        }
+                                    }
+                               }
+                            },
+                            itemTemplate: function(e) {
+                                if (e.field == "all") {
+                                    //handle the check-all checkbox template
+                                    return "<div><label><strong><input type='checkbox' />#= all#</strong></label></div>";
+                                } else {
+                                    //handle the other checkboxes
+                                    return "<span><label><input type='checkbox' name='" + e.field + "' value='#=Country#'/><span>#= Country #</span></label></span>"
+                                }
+                            }
+                        },
+                        width: "220px"
+                    },
+                    {
+                        field: "City",
+                        filterable: {
+                          multi: true,
+                          dataSource: [{
+                            City: "Seattle",
+                          },{
+                            City: "Tacoma",
+                          },{
+                            City: "Kirkland",
+                          },{
+                            City: "Redmond",
+                          },{
+                            City: "London"
+                          }],
+                          checkAll: false
+                        },
+                        width: "220px"
+                    },
+                    {
+                        filterable: {
+                            multi: true,
+                            dataSource: {
+                                transport: {
+                                    read: {
+                                        url: telerikWebServiceBase + "Employees/Unique",
+                                        dataType: "jsonp",
+                                        data: {
+                                            field: "Title"
+                                        }
+                                    }
+                               }
+                            }
+                        },
+                        field: "Title"
+                    }
+                ]
+            });
+            
+
+
+            $("#grid-3").kendoGrid({
+                dataSource: {
+                    data: createRandomData(50),
+                    schema: {
+                        model: {
+                            fields: {
+                                City: { type: "string" },
+                                Title: { type: "string" },
+                                BirthDate: { type: "date" }
+                            }
+                        }
+                    },
+                    pageSize: 15
+                },
+                height: 550,
+                scrollable: true,
+                filterable: {
+                    extra: false,
+                    operators: {
+                        string: {
+                            startswith: "Starts with",
+                            eq: "Is equal to",
+                            neq: "Is not equal to"
+                        }
+                    }
+                },
+                pageable: true,
+                columns: [
+                    {
+                        title: "Name",
+                        width: 160,
+                        filterable: false,
+                        template: "#=FirstName# #=LastName#"
+                    },
+                    {
+                        field: "City",
+                        width: 130,
+                        filterable: {
+                            ui: cityFilter
+                       }
+                    },
+                    {
+                        field: "Title",
+                        filterable: {
+                            ui: titleFilter
+                        }
+                    },
+                    {
+                        field: "BirthDate",
+                        title: "Birth Date",
+                        format: "{0:MM/dd/yyyy HH:mm tt}",
+                        filterable: {
+                            ui: "datetimepicker"
+                        }
+                    }
+               ]
+            });
+
+            function titleFilter(element) {
+                element.kendoAutoComplete({
+                    dataSource: titles
+                });
+            }
+
+            function cityFilter(element) {
+                element.kendoDropDownList({
+                    dataSource: cities,
+                    optionLabel: "--Select Value--"
+                });
+            }
+
+
+            $("#grid-4").kendoGrid({
+                dataSource: {
+                    data: createRandomData(50),
+                    schema: {
+                        model: {
+                            fields: {
+                                City: { type: "string" },
+                                Title: { type: "string" },
+                                BirthDate: { type: "date" }
+                            }
+                        }
+                    },
+                    pageSize: 15
+                },
+                scrollable: true,
+                filterable: {
+                    extra: false,
+                    operators: {
+                        string: {
+                            startswith: "Starts with",
+                            eq: "Is equal to",
+                            neq: "Is not equal to"
+                        }
+                    }
+                },
+                pageable: true,
+                columns: [
+                    {
+                        title: "Name",
+                        width: 160,
+                        filterable: false,
+                        template: "#=FirstName# #=LastName#"
+                    },
+                    {
+                        field: "City",
+                        width: 130
+                    },
+                    {
+                        field: "Title"
+                    },
+                    {
+                        field: "BirthDate",
+                        title: "Birth Date",
+                        format: "{0:MM/dd/yyyy HH:mm tt}",
+                        filterable: {
+                            ui: "datetimepicker"
+                        }
+                    }
+               ]
+            });
+
+            $('html').on('change', '#grid-4-city-filter', function(event) {
+                event.preventDefault();
+                
+                applyFilter("City", $(this).val());
+            });
+
+            $('html').on('change', '#grid-4-title-filter', function(event) {
+                event.preventDefault();
+                
+                applyFilter("Title", $(this).val());
+            });
+
+            $("#clear").click(function () {
+                clearFilters();
+            });
+
+
+            // applyFilter function accepts the Field Name and the new value to use for filter.
+            function applyFilter(filterField, filterValue) {
+
+                var gridData = $("#grid-4").data("kendoGrid");
+                var currFilterObj = gridData.dataSource.filter();
+
+                var currentFilters = currFilterObj ? currFilterObj.filters : [];
+
+                if (currentFilters && currentFilters.length > 0) {
+                    for (var i = 0; i < currentFilters.length; i++) {
+                        if (currentFilters[i].field == filterField) {
+                            currentFilters.splice(i, 1);
+                            break;
+                        }
+                    }
+                }
+
+
+                // https://docs.telerik.com/kendo-ui/api/javascript/data/datasource/configuration/filter#filter.operator
+                if (filterValue != "0") {
+                    currentFilters.push({
+                        field: filterField,
+                        operator: "contains", 
+                        value: filterValue
+                    });
+                }
+
+                gridData.dataSource.filter({
+                    logic: "and",
+                    filters: currentFilters
+                });
+
+            }
+
+
+            function clearFilters() {
+                var gridData = $("#grid-4").data("kendoGrid");
+                gridData.dataSource.filter({});
+            }
+
+        });
+    </script>
+
+</body>
+</html>
