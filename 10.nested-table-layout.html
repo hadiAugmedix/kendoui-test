@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="kendo/styles/kendo.common.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.rtl.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.default.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.default.mobile.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="demo.css">
+    <title>Nested table layout</title>
+
+    <style>
+        .tbl {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .tbl-a {
+            text-transform: capitalize;
+        }
+
+        .tbl-a, .tbl-b {
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
+
+</head>
+<body>
+    
+    
+    <div class="container">
+
+        <div id="grid"></div>
+
+    </div>
+
+    <template id="template">
+        <div class="tbl">
+            <div class="tbl-a">street</div>
+            <div class="tbl-b">#:address.street#</div>
+            <div class="tbl-a">suite</div>
+            <div class="tbl-b">#:address.suite#</div>
+            <div class="tbl-a">city</div>
+            <div class="tbl-b">#:address.city#</div>
+        </div>
+    </template>
+    
+
+    <script src="kendo/js/jquery.min.js"></script>
+    <script src="kendo/js/kendo.all.min.js"></script>
+
+    <script>
+        jQuery(document).ready(function($) {
+            $("#grid").kendoGrid({
+                dataSource: {
+                    transport: {
+                        read: "https://jsonplaceholder.typicode.com/users"
+                    },
+                    pageSize: 50
+                },
+                groupable: false,
+                sortable: true,
+                pageable: {
+                    refresh: true,
+                    pageSizes: true,
+                    buttonCount: 5
+                },
+                columns: [
+                    {
+                        field: "name",
+                        title: "Person name"
+                    },
+                    {
+                        field: "email",
+                        title: "Email address",
+                        sortable: false
+                    },
+                    {
+                        field: "website",
+                        title: "Website"
+                    },
+                    {
+                        field: "address",
+                        title: "Address",
+                        template: kendo.template($("#template").html())
+                    }
+                ],
+                height: 550
+            });
+        });
+    </script>
+
+</body>
+</html>
