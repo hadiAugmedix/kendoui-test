@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="kendo/styles/kendo.common.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.rtl.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.default.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.default.mobile.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="demo.css">
+    <title>Add or remove a row on fly in grid</title>
+
+</head>
+<body>
+    
+    
+    <div class="container">
+        <div id="grid"></div>
+        <br><br>
+        <div id="grid-2"></div>
+        <br><br>
+    </div>
+    
+
+    <script src="kendo/js/jquery.min.js"></script>
+    <script src="kendo/js/kendo.all.min.js"></script>
+
+    <script>
+        jQuery(document).ready(function($) {
+            var dataSource = {
+                transport: {
+                    read: {
+                        url: "https://jsonplaceholder.typicode.com/users",
+                        dataType: 'json'
+                    },
+                    create: {
+                        url: "https://jsonplaceholder.typicode.com/users",
+                        dataType: 'json',
+                        method: 'post'
+                    },
+                    update: {
+                        url: "https://jsonplaceholder.typicode.com/users",
+                        dataType: 'json',
+                        method: 'post'
+                    },
+                    destroy: {
+                        url: "https://jsonplaceholder.typicode.com/users",
+                        dataType: 'json',
+                        method: 'delete'
+                    },
+                    parameterMap: function(data, type) {
+                        if (type == "destroy") {
+                            return { id: data.id };
+                        }
+                    }
+                },
+                pageSize: 5,
+                serverPaging: true,
+                serverSorting: true,
+                schema: {
+                    model: {
+                        id: "id",
+                        fields: {
+                            name: { validation: { required: true } },
+                            email: { type: "email", validation: { required: true } },
+                            website: { type: "text" }
+                        }
+                    }
+                }
+
+            };
+
+            $("#grid").kendoGrid({
+                dataSource: dataSource,
+                groupable: false,
+                sortable: true,
+                pageable: {
+                    refresh: true,
+                    pageSizes: true,
+                    buttonCount: 5
+                },
+                columns: [
+                    {
+                        field: "name",
+                        title: "Person name"
+                    },
+                    {
+                        field: "email",
+                        title: "Email address",
+                        sortable: false
+                    },
+                    {
+                        field: "website",
+                        title: "Website"
+                    },
+                    { command: ["destroy"], title: "&nbsp;" }
+                ],
+                editable: true,
+                toolbar: ["create", "save", "cancel"],
+                // batch: true
+            });
+
+            $("#grid-2").kendoGrid({
+                dataSource: dataSource,
+                groupable: false,
+                sortable: true,
+                pageable: {
+                    refresh: true,
+                    pageSizes: true,
+                    buttonCount: 5
+                },
+                columns: [
+                    {
+                        field: "name",
+                        title: "Person name"
+                    },
+                    {
+                        field: "email",
+                        title: "Email address",
+                        sortable: false
+                    },
+                    {
+                        field: "website",
+                        title: "Website"
+                    },
+                    { command: ["edit", "destroy"], title: "&nbsp;" }
+                ],
+                editable: "popup",
+                toolbar: ["create"]
+            });
+        });
+    </script>
+
+</body>
+</html>
