@@ -8,7 +8,7 @@
     <link href="kendo/styles/kendo.default.mobile.min.css" rel="stylesheet">
 
     <link rel="stylesheet" href="demo.css">
-    <title>Sticky table header</title>
+    <title>External filter support for grid </title>
 
 </head>
 <body>
@@ -31,6 +31,11 @@
         <input type="button" id="clear" value="Clear Filters">
         <br><br>
         <div id="grid-4"></div>
+        <br><br>
+        
+        <input type="text" name="grid-5-name-filter" id="grid-5-name-filter" placeholder="Server side name filter">
+        <input type="text" name="grid-5-country-filter" id="grid-5-country-filter" placeholder="And country filter"> <br><br>
+        <div id="grid-5"></div>
         <br><br>
     </div>
     
@@ -446,6 +451,97 @@
                 var gridData = $("#grid-4").data("kendoGrid");
                 gridData.dataSource.filter({});
             }
+
+
+
+            $("#grid-5").kendoGrid({
+                dataSource: {
+                    type: "odata",
+                    transport: {
+                        read: telerikWebServiceBase + "Northwind.svc/Employees"
+                    },
+                    pageSize: 20,
+                    serverPaging: true,
+                    serverSorting: true,
+                    serverFiltering: true,
+                },
+                editable: true,
+                filterable: true,
+                pageable: true,
+                columns: [
+                    {
+                        field: "FirstName",
+                        title: "First Name"
+                    },
+                    {
+                        field: "LastName",
+                        title: "Last Name"
+                    },
+                    {
+                        field: "Country",
+                    },
+                    {
+                        field: "City",
+                    },
+                    {
+                        field: "Title"
+                    }
+                ]
+            });
+
+            $('html').on('change', '#grid-5-name-filter', function(event) {
+                event.preventDefault();
+                
+                applyFilter2("FirstName", $(this).val());
+            });
+
+            $('html').on('change', '#grid-5-country-filter', function(event) {
+                event.preventDefault();
+                
+                applyFilter2("Country", $(this).val());
+            });
+
+            $("#clear").click(function () {
+                clearFilters2();
+            });
+
+            function applyFilter2(filterField, filterValue) {
+
+                var gridData = $("#grid-5").data("kendoGrid");
+                var currFilterObj = gridData.dataSource.filter();
+
+                var currentFilters = currFilterObj ? currFilterObj.filters : [];
+
+                if (currentFilters && currentFilters.length > 0) {
+                    for (var i = 0; i < currentFilters.length; i++) {
+                        if (currentFilters[i].field == filterField) {
+                            currentFilters.splice(i, 1);
+                            break;
+                        }
+                    }
+                }
+
+                if (filterValue != "0") {
+                    currentFilters.push({
+                        field: filterField,
+                        operator: "contains", 
+                        value: filterValue
+                    });
+                }
+
+                gridData.dataSource.filter({
+                    logic: "and",
+                    filters: currentFilters
+                });
+
+            }
+
+
+            function clearFilters2() {
+                var gridData = $("#grid-5").data("kendoGrid");
+                gridData.dataSource.filter({});
+            }
+
 
         });
     </script>
