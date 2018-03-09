@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="kendo/styles/kendo.common.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.rtl.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.default.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.default.mobile.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="demo.css">
+    <title>Actions within popup</title>
+    
+    <style>
+        .hide { display: none }
+    </style>
+</head>
+<body>
+    
+    
+    <div class="container">
+        <button class="k-button" id="open-basic" data-popup="#open-basic-window">Open basic popup</button>
+        <button class="k-button" id="open-ajax" data-popup="#open-ajax-window">Open popup with ajax content in it</button>
+    </div>
+    
+    <div id="open-basic-window" class="hide">
+        <div class="k-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus tenetur aspernatur reprehenderit dolorem dolores. Aperiam odit, possimus ex, pariatur praesentium iste, excepturi itaque non, hic maiores aspernatur. Quis, repudiandae fuga!</p>
+        </div>
+    </div>
+
+    <div id="open-ajax-window" class="hide"></div>
+
+    <script src="kendo/js/jquery.min.js"></script>
+    <script src="kendo/js/kendo.all.min.js"></script>
+
+    <script>
+        jQuery(document).ready(function($) {
+
+            $('#open-basic').click(function(event) {
+                var popupWindow = $(this).attr('data-popup');
+
+                $(popupWindow).kendoWindow({
+                    width: "600px",
+                    title: "Popup title",
+                    visible: false,
+                    actions: [
+                        "Close"
+                    ],
+                    modal: true
+                }).data("kendoWindow").center().open();
+            });
+
+            $('#open-ajax').click(function(e) {
+                var popupWindow = $(this).attr('data-popup');
+                var posX = $(this).offset().left,
+                    posY = $(this).offset().top + $(this).outerHeight() + 10;
+
+                $(popupWindow).kendoWindow({
+                    position: {
+                        left: posX,
+                        top: posY
+                    },
+                    width: "600px",
+                    title: "Popup title",
+                    visible: false,
+                    actions: [
+                        "Close"
+                    ],
+                    content: "./ajax.html"
+                }).data("kendoWindow").open();
+            });
+
+            $('html').on('click', '#another-button', function(event) {
+                event.preventDefault();
+                
+                $('#open-basic').trigger('click');
+            });
+        });
+    </script>
+
+</body>
+</html>
