@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="kendo/styles/kendo.common.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.rtl.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.default.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.default.mobile.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="demo.css">
+    <title>Accordion</title>
+
+    <style>
+        .fieldlist {
+            margin: 0 0 -2em;
+            padding: 40px;
+        }
+
+        .fieldlist li {
+            list-style: none;
+            padding-bottom: 1em;
+        }
+
+        .fieldlist label {
+            display: block;
+            padding-bottom: 1em;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 12px;
+            color: #444;
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    
+    <div class="container">
+        <ul id="panelbar">
+            <li class="k-state-active">
+                Form
+
+                <div class="k-content">
+                    <ul class="fieldlist">
+                        <li>
+                            <label for="simple-input">Input</label>
+                            <input id="simple-input" type="text" class="k-textbox" style="width: 100%;" />
+                        </li>
+                        <li>
+                            <label for="simple-textarea">Textarea</label>
+                            <textarea id="simple-textarea" class="k-textbox" style="width: 100%;" ></textarea>
+                        </li>
+                        <li>
+                            <label for="icon-left">Input with icon on the left</label>
+                            <span class="k-textbox k-space-left" style="width: 100%;" >
+                                <input type="text" id="icon-left" />
+                                <a href="#" class="k-icon k-i-search">&nbsp;</a>
+                            </span>
+                        </li>
+                        <li>
+                            <label for="icon-right">Input with icon on the right</label>
+                            <span class="k-textbox k-space-right" style="width: 100%;" >
+                                <input type="text" id="icon-right"/>
+                                <a href="#" class="k-icon k-i-search">&nbsp;</a>
+                            </span>
+                        </li>
+                        <li>
+                            <h4>Buttons</h4>
+                            <button class="k-button">Default</button>&nbsp;
+                            <button class="k-button k-primary">Primary</button>
+                        </li>
+                        <li>
+                            <h4>Link as Button</h4>
+                            <a href="http://www.google.com" class="k-button">google.com</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </li>
+            <li>
+                Projects
+                <ul>
+                    <li>New Business Plan</li>
+                    <li>
+                        Sales Forecasts
+                        <ul>
+                            <li>Q1 Forecast</li>
+                            <li>Q2 Forecast</li>
+                            <li>Q3 Forecast</li>
+                            <li>Q4 Forecast</li>
+                        </ul>
+                    </li>
+                    <li>Sales Reports</li>
+                </ul>
+
+            </li>
+            <li>
+                Programs
+                <ul>
+                    <li>Monday</li>
+                    <li>Tuesday</li>
+                    <li>Wednesday</li>
+                    <li>Thursday</li>
+                    <li>Friday</li>
+                </ul>
+            </li>
+            <li>
+                Communication
+                <div><p style="padding: 40px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi accusamus quos voluptates enim, autem, vitae blanditiis explicabo beatae saepe expedita voluptas earum error facilis! Ad quod iste doloremque sapiente amet.</p></div>
+            </li>
+        </ul>
+    </div>
+
+    <br><br>
+    
+
+    <script src="kendo/js/jquery.min.js"></script>
+    <script src="kendo/js/kendo.all.min.js"></script>
+
+    <script>
+        jQuery(document).ready(function($) {
+            $("#panelbar").kendoPanelBar({
+                expandMode: "single"
+            });
+        });
+    </script>
+
+</body>
+</html>
