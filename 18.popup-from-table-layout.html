@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="kendo/styles/kendo.common.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.rtl.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.default.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.default.mobile.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="demo.css">
+    <title>Popup from table layout</title>
+    
+    <style>
+        .hide { display: none }
+    </style>
+</head>
+<body>
+    
+    
+    <div class="container">
+
+        <p>Click in any cell</p> <br>
+        <div id="grid"></div>
+    </div>
+
+    <div id="open-basic-window" class="hide">
+        <div class="k-content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus tenetur aspernatur reprehenderit dolorem dolores. Aperiam odit, possimus ex, pariatur praesentium iste, excepturi itaque non, hic maiores aspernatur. Quis, repudiandae fuga!</p>
+        </div>
+    </div>
+    
+
+    <script src="kendo/js/jquery.min.js"></script>
+    <script src="kendo/js/kendo.all.min.js"></script>
+
+    <script>
+        jQuery(document).ready(function($) {
+            $("#grid").kendoGrid({
+                dataSource: {
+                    transport: {
+                        read: "https://jsonplaceholder.typicode.com/posts"
+                    },
+                    pageSize: 50
+                },
+                groupable: false,
+                sortable: false,
+                pageable: {
+                    refresh: true,
+                    pageSizes: true,
+                    buttonCount: 5
+                },
+                columns: [
+                    {
+                        field: "id",
+                        title: "Post ID",
+                        width: 80,
+                        template: '<span class="custom-cell">#:id#</span>'
+                    },
+                    {
+                        field: "title",
+                        title: "Post title",
+                        template: '<span class="custom-cell">#:title#</span>'
+                    }
+                ],
+                height: 550
+            });
+
+            $('html').on('click', '.custom-cell', function(event) {
+                event.preventDefault();
+                
+                $('#open-basic-window').kendoWindow({
+                    width: "600px",
+                    title: "Popup title",
+                    visible: false,
+                    actions: [
+                        "Close"
+                    ],
+                    modal: true
+                }).data("kendoWindow").center().open();
+            });
+        });
+    </script>
+
+</body>
+</html>
