@@ -9,13 +9,24 @@
 
     <link rel="stylesheet" href="demo.css">
     <title>Sticky table header</title>
-
+    
+    <style>
+        * { font-family: Arial; }
+        li { list-style: none; }
+        .sortable li { background-color: #ddd; border-radius: 2px; margin: 2px; padding: 10px; cursor: move }
+    </style>
 </head>
 <body>
     
     
     <div class="container">
-        
+        <ul class="sortable">
+            <li>Apple</li>
+            <li>Orange</li>
+            <li>Banana</li>
+            <li>Another list item</li>
+            <li>Sort me</li>
+        </ul>
     </div>
     
 
@@ -23,7 +34,9 @@
     <script src="kendo/js/kendo.all.min.js"></script>
 
     <script>
-        
+        jQuery(document).ready(function($) {
+            $('.sortable').kendoSortable();
+        });
     </script>
 
 </body>
