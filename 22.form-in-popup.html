@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="kendo/styles/kendo.common.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.rtl.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.default.min.css" rel="stylesheet">
+    <link href="kendo/styles/kendo.default.mobile.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="demo.css">
+    <title>Form in popup</title>
+    
+    <style>
+        .hide { display: none }
+        .fieldlist {
+            padding: 10px;
+        }
+
+        .fieldlist li {
+            list-style: none;
+            padding-bottom: 10px;
+        }
+
+        .fieldlist label {
+            display: block;
+            padding-bottom: 5px;
+            font-size: 16px;
+            color: #444;
+        }
+
+    </style>
+</head>
+<body>
+    
+    
+    <div class="container">
+        <button class="k-button" id="open-basic" data-popup="#open-basic-window">Open popup and see form</button>
+    </div>
+    
+    <div id="open-basic-window" class="hide">
+        <div class="k-content">
+            <ul class="fieldlist">
+                <li>
+                    <label for="simple-input">Input</label>
+                    <input id="simple-input" type="text" class="k-textbox" style="width: 100%;" />
+                </li>
+                <li>
+                    <label for="simple-textarea">Textarea</label>
+                    <textarea id="simple-textarea" class="k-textbox" style="width: 100%;" ></textarea>
+                </li>
+                <li>
+                    <label for="icon-left">Input with icon on the left</label>
+                    <span class="k-textbox k-space-left" style="width: 100%;" >
+                        <input type="text" id="icon-left" />
+                        <a href="#" class="k-icon k-i-search">&nbsp;</a>
+                    </span>
+                </li>
+                <li>
+                    <label for="icon-right">Input with icon on the right</label>
+                    <span class="k-textbox k-space-right" style="width: 100%;" >
+                        <input type="text" id="icon-right"/>
+                        <a href="#" class="k-icon k-i-search">&nbsp;</a>
+                    </span>
+                </li>
+                <li>
+                    <h4>Buttons</h4>
+                    <button class="k-button">Default</button>&nbsp;
+                    <button class="k-button k-primary">Primary</button>
+                </li>
+                <li>
+                    <h4>Link as Button</h4>
+                    <a href="http://www.google.com" class="k-button">google.com</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="kendo/js/jquery.min.js"></script>
+    <script src="kendo/js/kendo.all.min.js"></script>
+
+    <script>
+        jQuery(document).ready(function($) {
+
+            $('#open-basic').click(function(event) {
+                var popupWindow = $(this).attr('data-popup');
+
+                $(popupWindow).kendoWindow({
+                    width: "600px",
+                    title: "Popup title",
+                    visible: false,
+                    actions: [
+                        "Close"
+                    ],
+                    modal: true
+                }).data("kendoWindow").center().open();
+            });
+        });
+    </script>
+
+</body>
+</html>
