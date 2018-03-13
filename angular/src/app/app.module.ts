@@ -11,15 +11,19 @@ import { ExampleComponent } from './components/example/example.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
+import { GridModule } from '@progress/kendo-angular-grid';
+
 import { TestListComponent } from './components/test-list/test-list.component';
 import { HomeComponent } from './components/home/home.component';
+import { AxStickyTableHeaderComponent } from './components/ax-sticky-table-header/ax-sticky-table-header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ExampleComponent,
     TestListComponent,
-    HomeComponent
+    HomeComponent,
+    AxStickyTableHeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +32,8 @@ import { HomeComponent } from './components/home/home.component';
     HttpModule,
 
     BrowserAnimationsModule,
-    ButtonsModule
+    ButtonsModule,
+    GridModule
   ],
   providers: [],
   bootstrap: [AppComponent]
