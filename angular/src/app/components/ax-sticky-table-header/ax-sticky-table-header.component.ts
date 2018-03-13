@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { products } from '../../data/products';
+import { ProductsService } from '../../service/products.service';
 
 @Component({
   selector: 'app-ax-sticky-table-header',
@@ -7,11 +7,12 @@ import { products } from '../../data/products';
   styleUrls: ['./ax-sticky-table-header.component.scss']
 })
 export class AxStickyTableHeaderComponent implements OnInit {
-  public gridData: any[] = products;
+  public gridData: any[];
 
-  constructor() { }
+  constructor(private _productService: ProductsService) { }
 
   ngOnInit() {
+    this.gridData = this._productService.getProducts();
   }
 
 }

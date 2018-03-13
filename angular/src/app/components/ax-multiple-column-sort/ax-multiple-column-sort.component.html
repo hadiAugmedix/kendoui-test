@@ -1,0 +1,16 @@
+<div class="container">
+  <kendo-grid
+    [data]="gridData"
+    [height]="530"
+    [sortable]="{ allowUnsort: true, mode: 'single' }"
+    [sort]="sort"
+    (sortChange)="sortChange($event)"
+  >
+    <kendo-grid-column field="ProductID" title="ID" width="80">
+    </kendo-grid-column>
+    <kendo-grid-column field="ProductName" title="Product Name">
+    </kendo-grid-column>
+    <kendo-grid-column field="UnitPrice" title="Unit Price" width="230" [sortable]="false">
+    </kendo-grid-column>
+  </kendo-grid>
+</div>
