@@ -10,6 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { GridModule } from '@progress/kendo-angular-grid';
+import { IntlModule } from '@progress/kendo-angular-intl';
+import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
 
 import { ProductsService } from './service/products.service';
 import { UsersService } from './service/users.service';
@@ -23,6 +25,7 @@ import { AxStickyTableHeaderComponent } from './components/ax-sticky-table-heade
 import { AxMultipleColumnSortComponent } from './components/ax-multiple-column-sort/ax-multiple-column-sort.component';
 import { AxStickyMultipleTableRowOnLeftComponent } from './components/ax-sticky-multiple-table-row-on-left/ax-sticky-multiple-table-row-on-left.component';
 import { AxRemoteDataBindComponent } from './components/ax-remote-data-bind/ax-remote-data-bind.component';
+import { AxMonthPickerComponent } from './components/ax-month-picker/ax-month-picker.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,8 @@ import { AxRemoteDataBindComponent } from './components/ax-remote-data-bind/ax-r
     AxStickyTableHeaderComponent,
     AxMultipleColumnSortComponent,
     AxStickyMultipleTableRowOnLeftComponent,
-    AxRemoteDataBindComponent
+    AxRemoteDataBindComponent,
+    AxMonthPickerComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +48,9 @@ import { AxRemoteDataBindComponent } from './components/ax-remote-data-bind/ax-r
 
     BrowserAnimationsModule,
     ButtonsModule,
-    GridModule
+    GridModule,
+    IntlModule,
+    DateInputsModule
   ],
   providers: [ProductsService, UsersService, KendoService],
   bootstrap: [AppComponent]

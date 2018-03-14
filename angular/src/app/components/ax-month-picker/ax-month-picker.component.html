@@ -1,0 +1,11 @@
+<div class="container">
+  <p>Selected date is {{ value | kendoDate:'MMMM yyyy' }}</p>
+
+  <kendo-datepicker
+    [bottomView]="'year'"
+    [topView]="'decade'"
+    [format]="'MMMM yyyy'"
+    [(value)]="value"
+    (valueChange)="change($event)"
+  ></kendo-datepicker>
+</div>

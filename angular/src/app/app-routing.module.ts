@@ -7,6 +7,7 @@ import { AxStickyTableHeaderComponent } from './components/ax-sticky-table-heade
 import { AxMultipleColumnSortComponent } from './components/ax-multiple-column-sort/ax-multiple-column-sort.component';
 import { AxStickyMultipleTableRowOnLeftComponent } from './components/ax-sticky-multiple-table-row-on-left/ax-sticky-multiple-table-row-on-left.component';
 import { AxRemoteDataBindComponent } from './components/ax-remote-data-bind/ax-remote-data-bind.component';
+import { AxMonthPickerComponent } from './components/ax-month-picker/ax-month-picker.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'sticky-table-header', component: AxStickyTableHeaderComponent },
   { path: 'multiple-column-sort', component: AxMultipleColumnSortComponent },
   { path: 'sticky-multiple-table-row-on-left', component: AxStickyMultipleTableRowOnLeftComponent },
-  { path: 'remote-data-bind', component: AxRemoteDataBindComponent }
+  { path: 'remote-data-bind', component: AxRemoteDataBindComponent },
+  { path: 'month-picker', component: AxMonthPickerComponent }
 ];
 
 @NgModule({
