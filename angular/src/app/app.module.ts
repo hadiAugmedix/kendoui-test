@@ -12,6 +12,7 @@ import { ButtonsModule } from '@progress/kendo-angular-buttons';
 import { GridModule } from '@progress/kendo-angular-grid';
 import { IntlModule } from '@progress/kendo-angular-intl';
 import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
+import { DropDownsModule, ComboBoxModule } from '@progress/kendo-angular-dropdowns';
 
 import { ProductsService } from './service/products.service';
 import { UsersService } from './service/users.service';
@@ -26,6 +27,7 @@ import { AxMultipleColumnSortComponent } from './components/ax-multiple-column-s
 import { AxStickyMultipleTableRowOnLeftComponent } from './components/ax-sticky-multiple-table-row-on-left/ax-sticky-multiple-table-row-on-left.component';
 import { AxRemoteDataBindComponent } from './components/ax-remote-data-bind/ax-remote-data-bind.component';
 import { AxMonthPickerComponent } from './components/ax-month-picker/ax-month-picker.component';
+import { AxCheckUncheckSelectBoxComponent } from './components/ax-check-uncheck-select-box/ax-check-uncheck-select-box.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { AxMonthPickerComponent } from './components/ax-month-picker/ax-month-pi
     AxMultipleColumnSortComponent,
     AxStickyMultipleTableRowOnLeftComponent,
     AxRemoteDataBindComponent,
-    AxMonthPickerComponent
+    AxMonthPickerComponent,
+    AxCheckUncheckSelectBoxComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,9 @@ import { AxMonthPickerComponent } from './components/ax-month-picker/ax-month-pi
     ButtonsModule,
     GridModule,
     IntlModule,
-    DateInputsModule
+    DateInputsModule,
+    DropDownsModule,
+    ComboBoxModule
   ],
   providers: [ProductsService, UsersService, KendoService],
   bootstrap: [AppComponent]

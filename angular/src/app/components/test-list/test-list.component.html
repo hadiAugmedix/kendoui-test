@@ -1,8 +1,3 @@
 <ul>
-  <li><a routerLink="/example">Example component</a></li>
-  <li><a routerLink="/sticky-table-header">Sticky table header</a></li>
-  <li><a routerLink="/multiple-column-sort">Multiple column sorting</a></li>
-  <li><a routerLink="/sticky-multiple-table-row-on-left">Sticky multiple table row on left</a></li>
-  <li><a routerLink="/remote-data-bind">Remote data binding</a></li>
-  <li><a routerLink="/month-picker">Month picker</a></li>
+  <li *ngFor="let menu of menuItems"><a [routerLink]="'/' + menu.slug">{{ menu.label }}</a></li>
 </ul>
