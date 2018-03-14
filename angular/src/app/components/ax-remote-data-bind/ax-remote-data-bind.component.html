@@ -12,7 +12,11 @@
     >
     <kendo-grid-column field="id" width="130"></kendo-grid-column>
     <kendo-grid-column field="name" width="200"></kendo-grid-column>
-    <kendo-grid-column field="username" [sortable]="false">
+    <kendo-grid-column field="username" [sortable]="false"></kendo-grid-column>
+    <kendo-grid-column field="address">
+      <ng-template kendoGridCellTemplate let-dataItem let-rowIndex="rowIndex">
+        {{ dataItem.address.street }}, {{ dataItem.address.suite }}, {{ dataItem.address.city }}
+      </ng-template>
     </kendo-grid-column>
   </kendo-grid>
 

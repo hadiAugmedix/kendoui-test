@@ -1,24 +1,26 @@
 <div class="container">
-  <kendo-grid [data]="users">
-    <kendo-grid-column field="id" title="ID" width="40">
+
+  <p>Remote date with local pagination with column freeze mode</p>
+  <kendo-grid [data]="gridView" [pageSize]="pageSize" [pageable]="true" [skip]="skip" (pageChange)="pageChange($event)">
+    <kendo-grid-column field="id" title="ID" width="40" [locked]="true">
     </kendo-grid-column>
-    <kendo-grid-column field="name" title="Name" width="300">
+    <kendo-grid-column field="name" title="Name" width="200" [locked]="true">
     </kendo-grid-column>
-    <kendo-grid-column field="email" title="Email">
+    <kendo-grid-column field="email" title="Email" width="200" [locked]="true">
     </kendo-grid-column>
-    <kendo-grid-column field="phone" title="Phone">
+    <kendo-grid-column field="phone" title="Phone" width="150">
     </kendo-grid-column>
-    <kendo-grid-column field="website" title="Website">
+    <kendo-grid-column field="website" title="Website" width="150">
     </kendo-grid-column>
-    <kendo-grid-column field="company" title="Company" width="300">
-      <ng-template kendoGridCellTemplate let-company>
-          {{ company.name }}
+    <kendo-grid-column field="company" title="Company" width="150">
+      <ng-template kendoGridCellTemplate let-dataItem>
+          {{ dataItem.company.name }}
       </ng-template>
     </kendo-grid-column>
-    <kendo-grid-column field="address" title="Address" width="300">
-        <ng-template kendoGridCellTemplate let-address>
-            {{ address.street }}
-        </ng-template>
-      </kendo-grid-column>
+    <kendo-grid-column field="address" title="Address" width="250">
+      <ng-template kendoGridCellTemplate let-dataItem>
+          {{ dataItem.address.street }}
+      </ng-template>
+    </kendo-grid-column>
   </kendo-grid>
 </div>

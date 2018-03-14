@@ -20,14 +20,11 @@ export class KendoService extends BehaviorSubject<GridDataResult> {
 
     protected fetch(state: any): Observable<GridDataResult> {
       console.log(state);
-        const queryStr = `${this.serializeModels(state)}&count=true`;
+
+        const queryStr = `skip=${state.skip}&take=${state.take}`;
 
         return this.http
             .get(`${this.BASE_URL}?${queryStr}`)
             .pipe(map(res => <GridDataResult>res));
-    }
-
-    private serializeModels(data?: any): string {
-      return data ? `&models=${JSON.stringify([data])}` : '';
     }
 }
