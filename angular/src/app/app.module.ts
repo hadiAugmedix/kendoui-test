@@ -28,6 +28,7 @@ import { AxStickyMultipleTableRowOnLeftComponent } from './components/ax-sticky-
 import { AxRemoteDataBindComponent } from './components/ax-remote-data-bind/ax-remote-data-bind.component';
 import { AxMonthPickerComponent } from './components/ax-month-picker/ax-month-picker.component';
 import { AxCheckUncheckSelectBoxComponent } from './components/ax-check-uncheck-select-box/ax-check-uncheck-select-box.component';
+import { AxDateRangeComponent } from './components/ax-date-range/ax-date-range.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { AxCheckUncheckSelectBoxComponent } from './components/ax-check-uncheck-
     AxStickyMultipleTableRowOnLeftComponent,
     AxRemoteDataBindComponent,
     AxMonthPickerComponent,
-    AxCheckUncheckSelectBoxComponent
+    AxCheckUncheckSelectBoxComponent,
+    AxDateRangeComponent
   ],
   imports: [
     BrowserModule,

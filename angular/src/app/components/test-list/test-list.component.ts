@@ -19,7 +19,8 @@ export class TestListComponent implements OnInit {
       { label: 'Sticky multiple table row on left', slug: 'sticky-multiple-table-row-on-left' },
       { label: 'Remote data binding', slug: 'remote-data-bind' },
       { label: 'Month picker', slug: 'month-picker' },
-      { label: 'Check uncheck select box', slug: 'check-uncheck-select-box' }
+      { label: 'Check uncheck select box', slug: 'check-uncheck-select-box' },
+      { label: 'Date range', slug: 'date-range' }
     ]
   }
 

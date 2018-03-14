@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
 import { ExampleComponent } from './components/example/example.component';
 import { TestListComponent } from './components/test-list/test-list.component';
 import { HomeComponent } from './components/home/home.component';
@@ -9,6 +10,7 @@ import { AxStickyMultipleTableRowOnLeftComponent } from './components/ax-sticky-
 import { AxRemoteDataBindComponent } from './components/ax-remote-data-bind/ax-remote-data-bind.component';
 import { AxMonthPickerComponent } from './components/ax-month-picker/ax-month-picker.component';
 import { AxCheckUncheckSelectBoxComponent } from './components/ax-check-uncheck-select-box/ax-check-uncheck-select-box.component';
+import { AxDateRangeComponent } from './components/ax-date-range/ax-date-range.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -19,7 +21,8 @@ const routes: Routes = [
   { path: 'sticky-multiple-table-row-on-left', component: AxStickyMultipleTableRowOnLeftComponent },
   { path: 'remote-data-bind', component: AxRemoteDataBindComponent },
   { path: 'month-picker', component: AxMonthPickerComponent },
-  { path: 'check-uncheck-select-box', component: AxCheckUncheckSelectBoxComponent }
+  { path: 'check-uncheck-select-box', component: AxCheckUncheckSelectBoxComponent },
+  { path: 'date-range', component: AxDateRangeComponent }
 ];
 
 @NgModule({

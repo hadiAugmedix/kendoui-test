@@ -1,0 +1,12 @@
+<div class="container">
+  <p>Only values between {{min | kendoDate:'d'}} and {{max | kendoDate:'d'}} are valid</p>
+  <p>Errors: {{ dateModel.errors | json }}</p>
+
+  <p>Select a date:</p>
+  <kendo-datepicker
+    [min]="min"
+    [max]="max"
+    [(ngModel)]="value"
+    #dateModel="ngModel"
+  ></kendo-datepicker>
+</div>
