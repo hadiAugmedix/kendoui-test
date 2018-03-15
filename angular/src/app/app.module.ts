@@ -33,6 +33,8 @@ import { AxCheckUncheckSelectBoxComponent } from './components/ax-check-uncheck-
 import { AxDateRangeComponent } from './components/ax-date-range/ax-date-range.component';
 import { AxConfirmBoxComponent } from './components/ax-confirm-box/ax-confirm-box.component';
 import { AxNestedTableComponent } from './components/ax-nested-table/ax-nested-table.component';
+import { AxReadLessInTableCellComponent } from './components/ax-read-less-in-table-cell/ax-read-less-in-table-cell.component';
+import { AxReadMoreComponent } from './components/ax-read-more/ax-read-more.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { AxNestedTableComponent } from './components/ax-nested-table/ax-nested-t
     AxCheckUncheckSelectBoxComponent,
     AxDateRangeComponent,
     AxConfirmBoxComponent,
-    AxNestedTableComponent
+    AxNestedTableComponent,
+    AxReadLessInTableCellComponent,
+    AxReadMoreComponent
   ],
   imports: [
     BrowserModule,

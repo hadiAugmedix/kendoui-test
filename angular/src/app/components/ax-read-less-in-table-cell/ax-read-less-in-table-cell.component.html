@@ -1,0 +1,23 @@
+<div class="container">
+  <kendo-grid [data]="gridData">
+    <kendo-grid-column field="ProductID" title="ID" width="40"></kendo-grid-column>
+    <kendo-grid-column field="ProductName" title="Name"></kendo-grid-column>
+    <kendo-grid-column field="Category.CategoryName" title="Category"></kendo-grid-column>
+    <kendo-grid-column field="UnitPrice" title="Price">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        ${{ dataItem.UnitPrice }}
+      </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column field="UnitsInStock" title="In stock"></kendo-grid-column>
+    <kendo-grid-column field="Discontinued" title="Discontinued" width="300">
+      <ng-template kendoGridCellTemplate let-dataItem>
+        <app-ax-read-more>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+          Doloremque ullam suscipit ipsam nemo a tenetur laudantium.
+          Quisquam, cum, vel recusandae unde accusantium officiis nihil dicta aspernatur accusamus hic impedit corporis?
+        </app-ax-read-more>
+      </ng-template>
+    </kendo-grid-column>
+  </kendo-grid>
+</div>
+

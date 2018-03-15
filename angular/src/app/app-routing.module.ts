@@ -14,6 +14,7 @@ import { AxCheckUncheckSelectBoxComponent } from './components/ax-check-uncheck-
 import { AxDateRangeComponent } from './components/ax-date-range/ax-date-range.component';
 import { AxConfirmBoxComponent } from './components/ax-confirm-box/ax-confirm-box.component';
 import { AxNestedTableComponent } from './components/ax-nested-table/ax-nested-table.component';
+import { AxReadLessInTableCellComponent } from './components/ax-read-less-in-table-cell/ax-read-less-in-table-cell.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -27,7 +28,8 @@ const routes: Routes = [
   { path: 'check-uncheck-select-box', component: AxCheckUncheckSelectBoxComponent },
   { path: 'date-range', component: AxDateRangeComponent },
   { path: 'confirm-box', component: AxConfirmBoxComponent },
-  { path: 'nested-table', component: AxNestedTableComponent }
+  { path: 'nested-table', component: AxNestedTableComponent },
+  { path: 'read-more-less-in-table-cell', component: AxReadLessInTableCellComponent }
 ];
 
 @NgModule({
