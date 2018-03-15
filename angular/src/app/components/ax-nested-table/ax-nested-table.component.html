@@ -1,0 +1,29 @@
+<div class="container">
+
+    <kendo-grid [data]="gridView" [pageSize]="pageSize" [pageable]="true" [skip]="skip" (pageChange)="pageChange($event)">
+      <kendo-grid-column field="id" title="ID" width="40">
+      </kendo-grid-column>
+      <kendo-grid-column field="name" title="Name" width="200">
+      </kendo-grid-column>
+      <kendo-grid-column field="email" title="Email" width="200">
+      </kendo-grid-column>
+      <kendo-grid-column field="address" title="Address" width="250">
+        <ng-template kendoGridCellTemplate let-dataItem>
+            <table>
+              <tr>
+                <th>Street</th>
+                <th>{{ dataItem.address.street }}</th>
+              </tr>
+              <tr>
+                <th>City</th>
+                <th>{{ dataItem.address.city }}</th>
+              </tr>
+              <tr>
+                <th>Zipcode</th>
+                <th>{{ dataItem.address.zipcode }}</th>
+              </tr>
+            </table>
+        </ng-template>
+      </kendo-grid-column>
+    </kendo-grid>
+  </div>

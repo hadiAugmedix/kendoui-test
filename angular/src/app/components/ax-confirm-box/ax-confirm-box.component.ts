@@ -7,8 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AxConfirmBoxComponent implements OnInit {
 
-  public dialogOpened = false;
-  public windowOpened = false;
+  public dialogOpened: Boolean = false;
+  public windowOpened: Boolean = false;
+
+  public selectedValue: String = '';
 
   constructor() { }
 
@@ -26,6 +28,7 @@ export class AxConfirmBoxComponent implements OnInit {
   public dialogAction(value) {
     console.log(value);
 
+    this.selectedValue = value;
     this.closeDialog();
   }
 

@@ -1,5 +1,5 @@
 <div class="container">
-  <button kendoButton (click)="openDialog()">Open dialog</button>
+  <button kendoButton (click)="openDialog()">Open dialog <span *ngIf="selectedValue.length > 0">&nbsp; (Selected value: {{ selectedValue }})</span></button>
 
   <kendo-dialog title="Please confirm" *ngIf="dialogOpened" (close)="closeDialog()" [minWidth]="250" [width]="450">
     <p style="margin: 30px; text-align: center;">Are you sure you want to continue?</p>

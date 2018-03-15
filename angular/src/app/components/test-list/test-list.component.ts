@@ -21,7 +21,8 @@ export class TestListComponent implements OnInit {
       { label: 'Month picker', slug: 'month-picker' },
       { label: 'Check uncheck select box', slug: 'check-uncheck-select-box' },
       { label: 'Date range', slug: 'date-range' },
-      { label: 'Confirm box', slug: 'confirm-box' }
+      { label: 'Confirm box', slug: 'confirm-box' },
+      { label: 'Nested table layout', slug: 'nested-table' }
     ]
   }
 

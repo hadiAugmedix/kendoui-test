@@ -32,6 +32,7 @@ import { AxMonthPickerComponent } from './components/ax-month-picker/ax-month-pi
 import { AxCheckUncheckSelectBoxComponent } from './components/ax-check-uncheck-select-box/ax-check-uncheck-select-box.component';
 import { AxDateRangeComponent } from './components/ax-date-range/ax-date-range.component';
 import { AxConfirmBoxComponent } from './components/ax-confirm-box/ax-confirm-box.component';
+import { AxNestedTableComponent } from './components/ax-nested-table/ax-nested-table.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { AxConfirmBoxComponent } from './components/ax-confirm-box/ax-confirm-bo
     AxMonthPickerComponent,
     AxCheckUncheckSelectBoxComponent,
     AxDateRangeComponent,
-    AxConfirmBoxComponent
+    AxConfirmBoxComponent,
+    AxNestedTableComponent
   ],
   imports: [
     BrowserModule,
