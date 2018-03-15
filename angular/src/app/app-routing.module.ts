@@ -6,11 +6,13 @@ import { TestListComponent } from './components/test-list/test-list.component';
 import { HomeComponent } from './components/home/home.component';
 import { AxStickyTableHeaderComponent } from './components/ax-sticky-table-header/ax-sticky-table-header.component';
 import { AxMultipleColumnSortComponent } from './components/ax-multiple-column-sort/ax-multiple-column-sort.component';
+// tslint:disable-next-line:max-line-length
 import { AxStickyMultipleTableRowOnLeftComponent } from './components/ax-sticky-multiple-table-row-on-left/ax-sticky-multiple-table-row-on-left.component';
 import { AxRemoteDataBindComponent } from './components/ax-remote-data-bind/ax-remote-data-bind.component';
 import { AxMonthPickerComponent } from './components/ax-month-picker/ax-month-picker.component';
 import { AxCheckUncheckSelectBoxComponent } from './components/ax-check-uncheck-select-box/ax-check-uncheck-select-box.component';
 import { AxDateRangeComponent } from './components/ax-date-range/ax-date-range.component';
+import { AxConfirmBoxComponent } from './components/ax-confirm-box/ax-confirm-box.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -22,7 +24,8 @@ const routes: Routes = [
   { path: 'remote-data-bind', component: AxRemoteDataBindComponent },
   { path: 'month-picker', component: AxMonthPickerComponent },
   { path: 'check-uncheck-select-box', component: AxCheckUncheckSelectBoxComponent },
-  { path: 'date-range', component: AxDateRangeComponent }
+  { path: 'date-range', component: AxDateRangeComponent },
+  { path: 'confirm-box', component: AxConfirmBoxComponent }
 ];
 
 @NgModule({

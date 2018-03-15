@@ -1,0 +1,11 @@
+<div class="container">
+  <button kendoButton (click)="openDialog()">Open dialog</button>
+
+  <kendo-dialog title="Please confirm" *ngIf="dialogOpened" (close)="closeDialog()" [minWidth]="250" [width]="450">
+    <p style="margin: 30px; text-align: center;">Are you sure you want to continue?</p>
+    <kendo-dialog-actions>
+        <button kendoButton (click)="dialogAction('no')">No</button>
+        <button kendoButton (click)="dialogAction('yes')" primary="true">Yes</button>
+    </kendo-dialog-actions>
+  </kendo-dialog>
+</div>

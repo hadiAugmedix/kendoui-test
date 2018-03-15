@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
 
 @Component({
   selector: 'app-ax-check-uncheck-select-box',
@@ -7,21 +10,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AxCheckUncheckSelectBoxComponent implements OnInit {
 
-  public listItems: Array<string> = ["Baseball", "Basketball", "Cricket", "Field Hockey", "Football", "Table Tennis", "Tennis", "Volleyball"];
+  public listItems: Array < String > ;
   public value: any = ['Baseball'];
 
   // https://stackoverflow.com/questions/44698660/grouping-items-on-kendo-angular-dropdownlist
-  public people: Array<Object> = [
-    { text: "A", value: 1, groupId: 1 },
-    { text: "B", value: 2, groupId: 1 },
-    { text: "C", value: 3, groupId: 1 },
-    { text: "D", value: 4, groupId: 2 },
-    { text: "E", value: 5, groupId: 2 }
+  public people: Array < Object > = [{
+      text: 'A',
+      value: 1,
+      groupId: 1
+    },
+    {
+      text: 'B',
+      value: 2,
+      groupId: 1
+    },
+    {
+      text: 'C',
+      value: 3,
+      groupId: 1
+    },
+    {
+      text: 'D',
+      value: 4,
+      groupId: 2
+    },
+    {
+      text: 'E',
+      value: 5,
+      groupId: 2
+    }
   ];
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
+    this.listItems = ['Baseball', 'Basketball', 'Cricket', 'Field Hockey', 'Football', 'Table Tennis', 'Tennis', 'Volleyball'];
   }
 
+  ngOnInit() {}
+
 }
+

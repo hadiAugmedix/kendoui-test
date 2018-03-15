@@ -20,7 +20,8 @@ export class TestListComponent implements OnInit {
       { label: 'Remote data binding', slug: 'remote-data-bind' },
       { label: 'Month picker', slug: 'month-picker' },
       { label: 'Check uncheck select box', slug: 'check-uncheck-select-box' },
-      { label: 'Date range', slug: 'date-range' }
+      { label: 'Date range', slug: 'date-range' },
+      { label: 'Confirm box', slug: 'confirm-box' }
     ]
   }
 
