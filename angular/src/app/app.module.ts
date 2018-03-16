@@ -18,6 +18,7 @@ import { DialogsModule } from '@progress/kendo-angular-dialog';
 import { ProductsService } from './service/products.service';
 import { UsersService } from './service/users.service';
 import { KendoService } from './service/kendo.service';
+import { RestService } from './service/rest.service';
 
 import { AppComponent } from './app.component';
 import { ExampleComponent } from './components/example/example.component';
@@ -35,6 +36,7 @@ import { AxConfirmBoxComponent } from './components/ax-confirm-box/ax-confirm-bo
 import { AxNestedTableComponent } from './components/ax-nested-table/ax-nested-table.component';
 import { AxReadLessInTableCellComponent } from './components/ax-read-less-in-table-cell/ax-read-less-in-table-cell.component';
 import { AxReadMoreComponent } from './components/ax-read-more/ax-read-more.component';
+import { AxAddRowInFlyComponent } from './components/ax-add-row-in-fly/ax-add-row-in-fly.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,8 @@ import { AxReadMoreComponent } from './components/ax-read-more/ax-read-more.comp
     AxConfirmBoxComponent,
     AxNestedTableComponent,
     AxReadLessInTableCellComponent,
-    AxReadMoreComponent
+    AxReadMoreComponent,
+    AxAddRowInFlyComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +73,7 @@ import { AxReadMoreComponent } from './components/ax-read-more/ax-read-more.comp
     ComboBoxModule,
     DialogsModule
   ],
-  providers: [ProductsService, UsersService, KendoService],
+  providers: [ProductsService, UsersService, KendoService, RestService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

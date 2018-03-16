@@ -23,8 +23,9 @@ export class TestListComponent implements OnInit {
       { label: 'Date range', slug: 'date-range' },
       { label: 'Confirm box', slug: 'confirm-box' },
       { label: 'Nested table layout', slug: 'nested-table' },
-      { label: 'Read more or less in table cell', slug: 'read-more-less-in-table-cell' }
-    ]
+      { label: 'Read more or less in table cell', slug: 'read-more-less-in-table-cell' },
+      { label: 'Add row in fly', slug: 'add-row-in-fly' }
+    ];
   }
 
 }
