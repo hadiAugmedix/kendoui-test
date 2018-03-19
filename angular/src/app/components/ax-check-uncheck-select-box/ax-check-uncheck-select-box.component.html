@@ -9,5 +9,18 @@
 
   <p>Multi select</p>
   <kendo-multiselect [data]="listItems" [(ngModel)]="value"></kendo-multiselect>
+
+  <p>With header</p>
+  <kendo-combobox
+        [data]="people"
+        [textField]="'text'"
+        [valueField]="'value'"
+        [value]="2"
+        [valuePrimitive]="true"
+    >
+        <ng-template kendoComboBoxHeaderTemplate>
+            <span style="padding: 5px 10px; font-weight: bold">People names</span>
+        </ng-template>
+    </kendo-combobox>
 </div>
 

@@ -39,6 +39,7 @@ import { AxReadLessInTableCellComponent } from './components/ax-read-less-in-tab
 import { AxReadMoreComponent } from './components/ax-read-more/ax-read-more.component';
 import { AxAddRowInFlyComponent } from './components/ax-add-row-in-fly/ax-add-row-in-fly.component';
 import { AxVerticalProgressSliderComponent } from './components/ax-vertical-progress-slider/ax-vertical-progress-slider.component';
+import { AxActionsWithPopupComponent } from './components/ax-actions-with-popup/ax-actions-with-popup.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { AxVerticalProgressSliderComponent } from './components/ax-vertical-prog
     AxReadLessInTableCellComponent,
     AxReadMoreComponent,
     AxAddRowInFlyComponent,
-    AxVerticalProgressSliderComponent
+    AxVerticalProgressSliderComponent,
+    AxActionsWithPopupComponent
   ],
   imports: [
     BrowserModule,

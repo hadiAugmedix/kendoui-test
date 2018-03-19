@@ -17,6 +17,7 @@ import { AxNestedTableComponent } from './components/ax-nested-table/ax-nested-t
 import { AxReadLessInTableCellComponent } from './components/ax-read-less-in-table-cell/ax-read-less-in-table-cell.component';
 import { AxAddRowInFlyComponent } from './components/ax-add-row-in-fly/ax-add-row-in-fly.component';
 import { AxVerticalProgressSliderComponent } from './components/ax-vertical-progress-slider/ax-vertical-progress-slider.component';
+import { AxActionsWithPopupComponent } from './components/ax-actions-with-popup/ax-actions-with-popup.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -33,7 +34,8 @@ const routes: Routes = [
   { path: 'nested-table', component: AxNestedTableComponent },
   { path: 'read-more-less-in-table-cell', component: AxReadLessInTableCellComponent },
   { path: 'add-row-in-fly', component: AxAddRowInFlyComponent },
-  { path: 'vertical-progress-slider', component: AxVerticalProgressSliderComponent }
+  { path: 'vertical-progress-slider', component: AxVerticalProgressSliderComponent },
+  { path: 'actions-within-popup', component: AxActionsWithPopupComponent }
 ];
 
 @NgModule({
