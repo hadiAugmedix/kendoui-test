@@ -27,7 +27,8 @@ export class TestListComponent implements OnInit {
       { label: 'Add row in fly', slug: 'add-row-in-fly' },
       { label: 'Vertical progress slider', slug: 'vertical-progress-slider' },
       { label: 'Actions within popup', slug: 'actions-within-popup' },
-      { label: 'Multiple popup instance', slug: 'multiple-popup-instance' }
+      { label: 'Multiple popup instance', slug: 'multiple-popup-instance' },
+      { label: 'Popup from table cell', slug: 'popup-from-table-cell' }
     ];
   }
 

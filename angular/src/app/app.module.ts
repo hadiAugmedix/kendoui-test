@@ -41,6 +41,7 @@ import { AxAddRowInFlyComponent } from './components/ax-add-row-in-fly/ax-add-ro
 import { AxVerticalProgressSliderComponent } from './components/ax-vertical-progress-slider/ax-vertical-progress-slider.component';
 import { AxActionsWithPopupComponent } from './components/ax-actions-with-popup/ax-actions-with-popup.component';
 import { AxMultiplePopupInstanceComponent } from './components/ax-multiple-popup-instance/ax-multiple-popup-instance.component';
+import { AxPopupFromTableCellComponent } from './components/ax-popup-from-table-cell/ax-popup-from-table-cell.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { AxMultiplePopupInstanceComponent } from './components/ax-multiple-popup
     AxAddRowInFlyComponent,
     AxVerticalProgressSliderComponent,
     AxActionsWithPopupComponent,
-    AxMultiplePopupInstanceComponent
+    AxMultiplePopupInstanceComponent,
+    AxPopupFromTableCellComponent
   ],
   imports: [
     BrowserModule,
