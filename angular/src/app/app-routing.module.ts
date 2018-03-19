@@ -16,6 +16,7 @@ import { AxConfirmBoxComponent } from './components/ax-confirm-box/ax-confirm-bo
 import { AxNestedTableComponent } from './components/ax-nested-table/ax-nested-table.component';
 import { AxReadLessInTableCellComponent } from './components/ax-read-less-in-table-cell/ax-read-less-in-table-cell.component';
 import { AxAddRowInFlyComponent } from './components/ax-add-row-in-fly/ax-add-row-in-fly.component';
+import { AxVerticalProgressSliderComponent } from './components/ax-vertical-progress-slider/ax-vertical-progress-slider.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -31,7 +32,8 @@ const routes: Routes = [
   { path: 'confirm-box', component: AxConfirmBoxComponent },
   { path: 'nested-table', component: AxNestedTableComponent },
   { path: 'read-more-less-in-table-cell', component: AxReadLessInTableCellComponent },
-  { path: 'add-row-in-fly', component: AxAddRowInFlyComponent }
+  { path: 'add-row-in-fly', component: AxAddRowInFlyComponent },
+  { path: 'vertical-progress-slider', component: AxVerticalProgressSliderComponent }
 ];
 
 @NgModule({

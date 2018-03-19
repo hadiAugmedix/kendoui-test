@@ -1,0 +1,23 @@
+<div class="container">
+  <p>Horizontal Slider - {{ currentValue }}</p>
+  <kendo-slider
+      [fixedTickWidth]="10"
+      [min]="min"
+      [max]="max"
+      [smallStep]="smallStep"
+      [(ngModel)] = "valueHorizontal"
+      (valueChange)="valueHandler($event)"
+  ></kendo-slider>
+
+  <br><br>
+  <p>Vertical Slider - {{ currentValue }}</p>
+  <kendo-slider
+      [fixedTickWidth]="10"
+      [vertical]="true"
+      [min]="min"
+      [max]="max"
+      [smallStep]="smallStep"
+      [(ngModel)] = "valueVertical"
+      (valueChange)="valueHandler($event)"
+  ></kendo-slider>
+</div>

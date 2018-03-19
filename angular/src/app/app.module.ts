@@ -14,6 +14,7 @@ import { IntlModule } from '@progress/kendo-angular-intl';
 import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
 import { DropDownsModule, ComboBoxModule } from '@progress/kendo-angular-dropdowns';
 import { DialogsModule } from '@progress/kendo-angular-dialog';
+import { InputsModule } from '@progress/kendo-angular-inputs';
 
 import { ProductsService } from './service/products.service';
 import { UsersService } from './service/users.service';
@@ -37,6 +38,7 @@ import { AxNestedTableComponent } from './components/ax-nested-table/ax-nested-t
 import { AxReadLessInTableCellComponent } from './components/ax-read-less-in-table-cell/ax-read-less-in-table-cell.component';
 import { AxReadMoreComponent } from './components/ax-read-more/ax-read-more.component';
 import { AxAddRowInFlyComponent } from './components/ax-add-row-in-fly/ax-add-row-in-fly.component';
+import { AxVerticalProgressSliderComponent } from './components/ax-vertical-progress-slider/ax-vertical-progress-slider.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,8 @@ import { AxAddRowInFlyComponent } from './components/ax-add-row-in-fly/ax-add-ro
     AxNestedTableComponent,
     AxReadLessInTableCellComponent,
     AxReadMoreComponent,
-    AxAddRowInFlyComponent
+    AxAddRowInFlyComponent,
+    AxVerticalProgressSliderComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +74,8 @@ import { AxAddRowInFlyComponent } from './components/ax-add-row-in-fly/ax-add-ro
     DateInputsModule,
     DropDownsModule,
     ComboBoxModule,
-    DialogsModule
+    DialogsModule,
+    InputsModule
   ],
   providers: [ProductsService, UsersService, KendoService, RestService],
   bootstrap: [AppComponent]
