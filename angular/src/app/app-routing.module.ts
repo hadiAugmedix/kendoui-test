@@ -18,6 +18,7 @@ import { AxReadLessInTableCellComponent } from './components/ax-read-less-in-tab
 import { AxAddRowInFlyComponent } from './components/ax-add-row-in-fly/ax-add-row-in-fly.component';
 import { AxVerticalProgressSliderComponent } from './components/ax-vertical-progress-slider/ax-vertical-progress-slider.component';
 import { AxActionsWithPopupComponent } from './components/ax-actions-with-popup/ax-actions-with-popup.component';
+import { AxMultiplePopupInstanceComponent } from './components/ax-multiple-popup-instance/ax-multiple-popup-instance.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -35,7 +36,8 @@ const routes: Routes = [
   { path: 'read-more-less-in-table-cell', component: AxReadLessInTableCellComponent },
   { path: 'add-row-in-fly', component: AxAddRowInFlyComponent },
   { path: 'vertical-progress-slider', component: AxVerticalProgressSliderComponent },
-  { path: 'actions-within-popup', component: AxActionsWithPopupComponent }
+  { path: 'actions-within-popup', component: AxActionsWithPopupComponent },
+  { path: 'multiple-popup-instance', component: AxMultiplePopupInstanceComponent }
 ];
 
 @NgModule({

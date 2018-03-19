@@ -40,6 +40,7 @@ import { AxReadMoreComponent } from './components/ax-read-more/ax-read-more.comp
 import { AxAddRowInFlyComponent } from './components/ax-add-row-in-fly/ax-add-row-in-fly.component';
 import { AxVerticalProgressSliderComponent } from './components/ax-vertical-progress-slider/ax-vertical-progress-slider.component';
 import { AxActionsWithPopupComponent } from './components/ax-actions-with-popup/ax-actions-with-popup.component';
+import { AxMultiplePopupInstanceComponent } from './components/ax-multiple-popup-instance/ax-multiple-popup-instance.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { AxActionsWithPopupComponent } from './components/ax-actions-with-popup/
     AxReadMoreComponent,
     AxAddRowInFlyComponent,
     AxVerticalProgressSliderComponent,
-    AxActionsWithPopupComponent
+    AxActionsWithPopupComponent,
+    AxMultiplePopupInstanceComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,14 @@
+<div class="container">
+  <button kendoButton (click)="openWindow()">Open inline window</button>
+
+  <kendo-window [width]="600" title="Multiple popup instance" *ngIf="windowOpened" (close)="closeWindow()">
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aperiam eius error amet quasi dicta suscipit perspiciatis expedita ea quod,
+      id assumenda eveniet cum recusandae autem saepe soluta itaque eum. Est.</p>
+
+    <button kendoButton (click)="openSubWindow()">Open another window</button>
+  </kendo-window>
+
+  <kendo-window [width]="600" [(top)]="subWindowTop" [(left)]="subWindowLeft" title="Another window" *ngIf="subWindowOpened" (close)="closeSubWindow()">
+    <p>I am sub window</p>
+  </kendo-window>
+</div>
