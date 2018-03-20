@@ -21,6 +21,7 @@ import { AxActionsWithPopupComponent } from './components/ax-actions-with-popup/
 import { AxMultiplePopupInstanceComponent } from './components/ax-multiple-popup-instance/ax-multiple-popup-instance.component';
 import { AxPopupFromTableCellComponent } from './components/ax-popup-from-table-cell/ax-popup-from-table-cell.component';
 import { AxTimePickerComponent } from './components/ax-time-picker/ax-time-picker.component';
+import { AxListDragSortComponent } from './components/ax-list-drag-sort/ax-list-drag-sort.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -41,7 +42,8 @@ const routes: Routes = [
   { path: 'actions-within-popup', component: AxActionsWithPopupComponent },
   { path: 'multiple-popup-instance', component: AxMultiplePopupInstanceComponent },
   { path: 'popup-from-table-cell', component: AxPopupFromTableCellComponent },
-  { path: 'time-picker', component: AxTimePickerComponent }
+  { path: 'time-picker', component: AxTimePickerComponent },
+  { path: 'list-drag-sort', component: AxListDragSortComponent }
 ];
 
 @NgModule({

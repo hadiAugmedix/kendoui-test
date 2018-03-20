@@ -15,6 +15,7 @@ import { DateInputsModule } from '@progress/kendo-angular-dateinputs';
 import { DropDownsModule, ComboBoxModule } from '@progress/kendo-angular-dropdowns';
 import { DialogsModule } from '@progress/kendo-angular-dialog';
 import { InputsModule } from '@progress/kendo-angular-inputs';
+import { SortableModule } from '@progress/kendo-angular-sortable';
 
 import { ProductsService } from './service/products.service';
 import { UsersService } from './service/users.service';
@@ -43,6 +44,7 @@ import { AxActionsWithPopupComponent } from './components/ax-actions-with-popup/
 import { AxMultiplePopupInstanceComponent } from './components/ax-multiple-popup-instance/ax-multiple-popup-instance.component';
 import { AxPopupFromTableCellComponent } from './components/ax-popup-from-table-cell/ax-popup-from-table-cell.component';
 import { AxTimePickerComponent } from './components/ax-time-picker/ax-time-picker.component';
+import { AxListDragSortComponent } from './components/ax-list-drag-sort/ax-list-drag-sort.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +68,8 @@ import { AxTimePickerComponent } from './components/ax-time-picker/ax-time-picke
     AxActionsWithPopupComponent,
     AxMultiplePopupInstanceComponent,
     AxPopupFromTableCellComponent,
-    AxTimePickerComponent
+    AxTimePickerComponent,
+    AxListDragSortComponent
   ],
   imports: [
     BrowserModule,
@@ -83,7 +86,8 @@ import { AxTimePickerComponent } from './components/ax-time-picker/ax-time-picke
     DropDownsModule,
     ComboBoxModule,
     DialogsModule,
-    InputsModule
+    InputsModule,
+    SortableModule
   ],
   providers: [ProductsService, UsersService, KendoService, RestService],
   bootstrap: [AppComponent]

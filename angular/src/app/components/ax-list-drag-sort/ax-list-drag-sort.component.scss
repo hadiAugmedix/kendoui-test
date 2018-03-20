@@ -1,0 +1,12 @@
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-gap: 10px;
+
+  .col {
+    background: #f9f9f9;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.05);
+  }
+}

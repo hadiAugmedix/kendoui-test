@@ -1,0 +1,6 @@
+<div class="container">
+  <p>Items: {{items | json}}</p>
+
+  <kendo-sortable [navigatable]="true" [animation]="true" [data]="items" class="row" itemClass="col" activeItemClass="col active">
+  </kendo-sortable>
+</div>
