@@ -42,6 +42,7 @@ import { AxVerticalProgressSliderComponent } from './components/ax-vertical-prog
 import { AxActionsWithPopupComponent } from './components/ax-actions-with-popup/ax-actions-with-popup.component';
 import { AxMultiplePopupInstanceComponent } from './components/ax-multiple-popup-instance/ax-multiple-popup-instance.component';
 import { AxPopupFromTableCellComponent } from './components/ax-popup-from-table-cell/ax-popup-from-table-cell.component';
+import { AxTimePickerComponent } from './components/ax-time-picker/ax-time-picker.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { AxPopupFromTableCellComponent } from './components/ax-popup-from-table-
     AxVerticalProgressSliderComponent,
     AxActionsWithPopupComponent,
     AxMultiplePopupInstanceComponent,
-    AxPopupFromTableCellComponent
+    AxPopupFromTableCellComponent,
+    AxTimePickerComponent
   ],
   imports: [
     BrowserModule,

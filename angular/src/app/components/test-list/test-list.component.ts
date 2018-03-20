@@ -28,7 +28,8 @@ export class TestListComponent implements OnInit {
       { label: 'Vertical progress slider', slug: 'vertical-progress-slider' },
       { label: 'Actions within popup', slug: 'actions-within-popup' },
       { label: 'Multiple popup instance', slug: 'multiple-popup-instance' },
-      { label: 'Popup from table cell', slug: 'popup-from-table-cell' }
+      { label: 'Popup from table cell', slug: 'popup-from-table-cell' },
+      { label: 'Time picker', slug: 'time-picker' }
     ];
   }
 

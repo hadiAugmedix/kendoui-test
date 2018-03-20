@@ -20,6 +20,7 @@ import { AxVerticalProgressSliderComponent } from './components/ax-vertical-prog
 import { AxActionsWithPopupComponent } from './components/ax-actions-with-popup/ax-actions-with-popup.component';
 import { AxMultiplePopupInstanceComponent } from './components/ax-multiple-popup-instance/ax-multiple-popup-instance.component';
 import { AxPopupFromTableCellComponent } from './components/ax-popup-from-table-cell/ax-popup-from-table-cell.component';
+import { AxTimePickerComponent } from './components/ax-time-picker/ax-time-picker.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -39,7 +40,8 @@ const routes: Routes = [
   { path: 'vertical-progress-slider', component: AxVerticalProgressSliderComponent },
   { path: 'actions-within-popup', component: AxActionsWithPopupComponent },
   { path: 'multiple-popup-instance', component: AxMultiplePopupInstanceComponent },
-  { path: 'popup-from-table-cell', component: AxPopupFromTableCellComponent }
+  { path: 'popup-from-table-cell', component: AxPopupFromTableCellComponent },
+  { path: 'time-picker', component: AxTimePickerComponent }
 ];
 
 @NgModule({

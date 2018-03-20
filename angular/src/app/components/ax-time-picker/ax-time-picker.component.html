@@ -1,0 +1,4 @@
+<div class="container">
+  <p>Selected value is: {{value | kendoDate:'hh:mm:ss a'}}</p>
+  <kendo-timepicker [(value)]="value" (valueChange)="onChange($event)"></kendo-timepicker>
+</div>
