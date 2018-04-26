@@ -60,7 +60,7 @@ export class AxAddRowInFlyComponent implements OnInit {
     this._restService.read(state);
   }
 
-  protected editHandler({ sender, rowIndex, dataItem }) {
+  public editHandler({ sender, rowIndex, dataItem }) {
     const group = new FormGroup({
       'name': new FormControl(dataItem.name),
       'website': new FormControl(dataItem.website, Validators.required)
@@ -72,7 +72,7 @@ export class AxAddRowInFlyComponent implements OnInit {
   }
 
   // no idea why it's not working!
-  protected addHandler({ sender }) {
+  public addHandler({ sender }) {
     this.closeEditor(sender);
 
     this.formGroup = new FormGroup({

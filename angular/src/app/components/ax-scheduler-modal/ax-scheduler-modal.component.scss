@@ -1,0 +1,17 @@
+.button-list {
+  padding-top: 20px;
+
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+.k-button {
+  float: left;
+
+  & + .k-button {
+    float: right;
+  }
+}

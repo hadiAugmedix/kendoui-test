@@ -22,6 +22,7 @@ import { AxMultiplePopupInstanceComponent } from './components/ax-multiple-popup
 import { AxPopupFromTableCellComponent } from './components/ax-popup-from-table-cell/ax-popup-from-table-cell.component';
 import { AxTimePickerComponent } from './components/ax-time-picker/ax-time-picker.component';
 import { AxListDragSortComponent } from './components/ax-list-drag-sort/ax-list-drag-sort.component';
+import { AxSchedulerModalComponent } from './components/ax-scheduler-modal/ax-scheduler-modal.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -43,7 +44,8 @@ const routes: Routes = [
   { path: 'multiple-popup-instance', component: AxMultiplePopupInstanceComponent },
   { path: 'popup-from-table-cell', component: AxPopupFromTableCellComponent },
   { path: 'time-picker', component: AxTimePickerComponent },
-  { path: 'list-drag-sort', component: AxListDragSortComponent }
+  { path: 'list-drag-sort', component: AxListDragSortComponent },
+  { path: 'scp-schedule-modal', component: AxSchedulerModalComponent },
 ];
 
 @NgModule({

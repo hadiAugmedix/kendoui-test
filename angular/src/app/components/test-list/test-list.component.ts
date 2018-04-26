@@ -30,7 +30,8 @@ export class TestListComponent implements OnInit {
       { label: 'Multiple popup instance', slug: 'multiple-popup-instance' },
       { label: 'Popup from table cell', slug: 'popup-from-table-cell' },
       { label: 'Time picker', slug: 'time-picker' },
-      { label: 'List drag n sort', slug: 'list-drag-sort' }
+      { label: 'List drag n sort', slug: 'list-drag-sort' },
+      { label: 'SCP: Schedule modal', slug: 'scp-schedule-modal' }
     ];
   }
 

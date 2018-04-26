@@ -45,6 +45,7 @@ import { AxMultiplePopupInstanceComponent } from './components/ax-multiple-popup
 import { AxPopupFromTableCellComponent } from './components/ax-popup-from-table-cell/ax-popup-from-table-cell.component';
 import { AxTimePickerComponent } from './components/ax-time-picker/ax-time-picker.component';
 import { AxListDragSortComponent } from './components/ax-list-drag-sort/ax-list-drag-sort.component';
+import { AxSchedulerModalComponent } from './components/ax-scheduler-modal/ax-scheduler-modal.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { AxListDragSortComponent } from './components/ax-list-drag-sort/ax-list-
     AxMultiplePopupInstanceComponent,
     AxPopupFromTableCellComponent,
     AxTimePickerComponent,
-    AxListDragSortComponent
+    AxListDragSortComponent,
+    AxSchedulerModalComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,42 @@
+<div class="container">
+  <button kendoButton (click)="openWindow()">Click to open modal window</button>
+  <br><br>
+  <p>Selected list: {{ patient | json }}</p>
+
+  <kendo-window
+    [minWidth]="600"
+    [minHeight]="125"
+    title="Add patient list for the day from another user"
+    *ngIf="windowOpened"
+    (close)="closeWindow()"
+    [(top)]="windowPositionTop"
+    [(left)]="windowPositionLeft"
+  >
+    <form class="k-form" style="padding: 0px">
+      <label class="k-form-field">
+        <kendo-dropdownlist
+            name="patient"
+            [data]="patients"
+            [textField]="'text'"
+            [valueField]="'value'"
+            [(ngModel)]="patient"
+            class="full-width"
+        >
+        </kendo-dropdownlist>
+      </label>
+
+      <ul>
+        <li>This window is showing at postion left {{ windowPositionLeft }}px and top {{ windowPositionTop }}px. This line update when you will drag it.</li>
+        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+        <li>Dolorem magnam officia eius accusantium deserunt perferendis nisi illum placeat</li>
+        <li>modi ipsum dolorum saepe molestias beatae nemo illo! Dicta aspernatur accusantium earum?</li>
+      </ul>
+
+
+      <div class="button-list">
+        <button type="button" class="k-button" (click)="closeWindow()">Cancel</button>
+        <button type="button" class="k-button k-primary" (click)="addPatientList()">Add patient list</button>
+      </div>
+    </form>
+  </kendo-window>
+</div>
