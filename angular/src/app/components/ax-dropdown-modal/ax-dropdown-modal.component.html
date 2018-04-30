@@ -1,0 +1,37 @@
+<div class="container">
+  <kendo-dropdownbutton
+    [data]="dropDownButtonItems"
+    [icon]="'folder-more'"
+    (itemClick)="onItemClick($event)"
+    (click)="dropdownClickHandler($event)"
+  >
+    Open dropdown
+  </kendo-dropdownbutton>
+
+  <kendo-window
+    [width]="600"
+    [minHeight]="125"
+    *ngIf="windowOpened"
+    (close)="closeWindow()"
+    [(top)]="windowPositionTop"
+    [(left)]="windowPositionLeft"
+  >
+    <kendo-window-titlebar>
+      <div style="font-size: 16px; line-height: 1.3em; width: 100%; position: relative;">
+        <div class="float-left">{{ currentItem.text }}</div>
+        <button kendoWindowCloseAction style="position: absolute; right: -5px; top: -9px"></button>
+      </div>
+    </kendo-window-titlebar>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum quisquam assumenda repellat dolor iste, a eveniet. Deleniti perferendis non,
+      pariatur eaque inventore, obcaecati itaque nihil voluptatum corrupti magnam doloremque vel.</p>
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck2" [(ngModel)]="agreeMark">
+      <label class="form-check-label" for="exampleCheck2">I agree with above text</label>
+    </div>
+
+    <div>
+      <button class="btn" (click)="alertService('Cancel button clicked')">Cancel</button>
+      <button class="btn btn-danger float-right" (click)="alertService('Primary button clicked')">{{ currentItem.text }}</button>
+    </div>
+  </kendo-window>
+</div>

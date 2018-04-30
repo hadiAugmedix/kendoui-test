@@ -34,6 +34,7 @@ export class TestListComponent implements OnInit {
       { label: 'SCP: Schedule modal', slug: 'scp-schedule-modal' },
       { label: 'SCP: Popover', slug: 'scp-dropup' },
       { label: 'SCP: Modal', slug: 'scp-modal' },
+      { label: 'SCP: Dropdown with modal', slug: 'scp-dropdown-modal' }
     ];
   }
 

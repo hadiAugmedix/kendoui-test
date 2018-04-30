@@ -48,6 +48,7 @@ import { AxListDragSortComponent } from './components/ax-list-drag-sort/ax-list-
 import { AxSchedulerModalComponent } from './components/ax-scheduler-modal/ax-scheduler-modal.component';
 import { AxDropupComponent } from './components/ax-dropup/ax-dropup.component';
 import { AxModalComponent } from './components/ax-modal/ax-modal.component';
+import { AxDropdownModalComponent } from './components/ax-dropdown-modal/ax-dropdown-modal.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +76,8 @@ import { AxModalComponent } from './components/ax-modal/ax-modal.component';
     AxListDragSortComponent,
     AxSchedulerModalComponent,
     AxDropupComponent,
-    AxModalComponent
+    AxModalComponent,
+    AxDropdownModalComponent
   ],
   imports: [
     BrowserModule,
