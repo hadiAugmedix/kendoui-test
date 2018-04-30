@@ -24,6 +24,7 @@ import { AxTimePickerComponent } from './components/ax-time-picker/ax-time-picke
 import { AxListDragSortComponent } from './components/ax-list-drag-sort/ax-list-drag-sort.component';
 import { AxSchedulerModalComponent } from './components/ax-scheduler-modal/ax-scheduler-modal.component';
 import { AxDropupComponent } from './components/ax-dropup/ax-dropup.component';
+import { AxModalComponent } from './components/ax-modal/ax-modal.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -47,7 +48,8 @@ const routes: Routes = [
   { path: 'time-picker', component: AxTimePickerComponent },
   { path: 'list-drag-sort', component: AxListDragSortComponent },
   { path: 'scp-schedule-modal', component: AxSchedulerModalComponent },
-  { path: 'scp-dropup', component: AxDropupComponent }
+  { path: 'scp-dropup', component: AxDropupComponent },
+  { path: 'scp-modal', component: AxModalComponent }
 ];
 
 @NgModule({

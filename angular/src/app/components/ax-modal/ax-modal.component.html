@@ -1,0 +1,55 @@
+<div class="container">
+    <button kendoButton (click)="openDialog()">Click to open modal dialog</button>
+
+    <kendo-dialog
+      [width]="1000"
+      title="Template"
+      *ngIf="dialogOpened"
+      (close)="closeDialog()"
+      modal="true"
+    >
+      <div class="row">
+        <div class="col-lg-4">
+          <button class="btn btn-primary btn-block" (click)="addNewTemplate()">Add new template</button>
+
+          <ul class="list-group list-group-flush">
+            <li
+              class="list-group-item"
+              *ngFor="let t of templates; let i = index"
+              [ngClass]="{'font-weight-bold': i === activeIndex}"
+              (click)="setActiveIndex($event, i)"
+            >{{ t.name }}</li>
+          </ul>
+        </div>
+        <div class="col-lg-8">
+
+          <div class="t-forms">
+            <div class="t-form" *ngFor="let t of templates; let i = index" [ngClass]="{'active': i === activeIndex}">
+                <div class="form-group">
+                  <label for="templatename">Template name</label>
+                  <input type="text" class="form-control" id="templatename" placeholder="Name" [(ngModel)]="t.name">
+                </div>
+                <div class="form-group">
+                  <label for="templatedata">Example textarea</label>
+                  <textarea class="form-control" id="templatedata" name="templatedata" rows="10" [(ngModel)]="t.data"></textarea>
+                </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-lg-6">
+              <button type="button" class="btn btn-light" (click)="alertService('Cancle')">Cancle</button>
+              <button type="button" class="btn btn-danger" (click)="alertService('Delete')">Delete</button>
+            </div>
+            <div class="col-lg-6">
+              <div class="float-right">
+                <button type="button" class="btn btn-outline-primary" (click)="alertService('Copy template')">Copy template</button>
+                <button type="button" class="btn btn-primary" (click)="alertService('Save')">Save</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </kendo-dialog>
+  </div>

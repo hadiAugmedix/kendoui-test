@@ -32,7 +32,8 @@ export class TestListComponent implements OnInit {
       { label: 'Time picker', slug: 'time-picker' },
       { label: 'List drag n sort', slug: 'list-drag-sort' },
       { label: 'SCP: Schedule modal', slug: 'scp-schedule-modal' },
-      { label: 'SCP: Popover', slug: 'scp-dropup' }
+      { label: 'SCP: Popover', slug: 'scp-dropup' },
+      { label: 'SCP: Modal', slug: 'scp-modal' },
     ];
   }
 

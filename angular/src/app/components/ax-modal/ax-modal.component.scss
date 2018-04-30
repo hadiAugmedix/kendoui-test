@@ -1,0 +1,13 @@
+.list-group-item {
+  cursor: pointer;
+}
+
+.t-forms {
+  .t-form {
+    display: none;
+
+    &.active {
+      display: block;
+    }
+  }
+}
