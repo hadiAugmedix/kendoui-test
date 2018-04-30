@@ -1,16 +1,68 @@
 <div style="height: 90vh; position: relative">
+
+  <br>
+  <p style="margin-bottom: 7px">Click on "Click me" on bottom right and see <br><b>Live changes</b></p>
+  <pre><code>{{ optionData | json }}</code></pre>
+
+  <span><b>Button status</b>: <code>isOpened: {{ dropdownOpened }}</code></span>
+
   <div style="position: absolute; right: 0; bottom: 0">
 
-    <div class="btn-group dropup show">
-      <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Dropup
+    <div class="btn-group dropup show" (click)="btnClickHandler($event)">
+      <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" (click)="openDropdown()">
+        Click me
       </button>
       <div class="dropdown-menu show" *ngIf="dropdownOpened">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">Separated link</a>
+        <div class="p-3">
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1" [(ngModel)]="optionData.valueOne">
+              <label class="form-check-label" for="exampleCheck1">Checkmark a recording when it finishes playing</label>
+            </div>
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck2" [(ngModel)]="optionData.valueTwo">
+              <label class="form-check-label" for="exampleCheck2">Hide any checkmarked recordings</label>
+            </div>
+
+            <p style="margin-bottom: 7px"><strong>Automatic playback</strong></p>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" [(ngModel)]="optionData.valueThree">
+              <label class="form-check-label" for="exampleRadios1">
+                Automatically play next recording
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" [(ngModel)]="optionData.valueThree">
+              <label class="form-check-label" for="exampleRadios2">
+                Play recordings as sson as they arrive
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" [(ngModel)]="optionData.valueThree">
+              <label class="form-check-label" for="exampleRadios3">
+                Dont not automatically play recordings
+              </label>
+            </div>
+
+            <p style="margin-bottom: 7px"><strong>Stream volumn control</strong></p>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="exampleRadios2" id="exampleRadios4" value="option1" [(ngModel)]="optionData.valueFour">
+              <label class="form-check-label" for="exampleRadios4">
+                When playing recordings, mute stream
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="exampleRadios2" id="exampleRadios5" value="option2" [(ngModel)]="optionData.valueFour">
+              <label class="form-check-label" for="exampleRadios5">
+                When playing recordings, reduce volumn to 10%
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="exampleRadios2" id="exampleRadios6" value="option3" [(ngModel)]="optionData.valueFour">
+              <label class="form-check-label" for="exampleRadios6">
+                When playing recordings, don't adjust stream volumn
+              </label>
+            </div>
+        </div>
       </div>
     </div>
 

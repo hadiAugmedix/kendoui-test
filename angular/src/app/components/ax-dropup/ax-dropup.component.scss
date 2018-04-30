@@ -1,4 +1,9 @@
 .dropdown-menu {
   right: 0;
   left: auto;
+  width: 250px;
+
+  .form-group:last-child {
+    margin-bottom: 0;
+  }
 }
